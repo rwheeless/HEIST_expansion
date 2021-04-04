@@ -13,6 +13,7 @@ public class DigitalDisplay : MonoBehaviour
 
     private string codeSequence;
 
+    public bool openDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class DigitalDisplay : MonoBehaviour
         }
 
         ButtonPusher.ButtonPressed += AddDigitToCodeSequence;
+
+        openDoor = false;
     }
 
     private void AddDigitToCodeSequence(string digitEntered)
@@ -127,6 +130,8 @@ public class DigitalDisplay : MonoBehaviour
         if (codeSequence == "5948")
         {
             Debug.Log("Correct!");
+
+            openDoor = true;
         }
 
         else

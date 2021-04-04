@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private bool CloseToLeverOne;
     private bool CloseToLeverTwo;
     private bool CloseToLeverThree;
-    private bool win = false;
+    private bool win;
 
     private bool AtKeypad;
 
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip leverSound;
 
-    /*[SerializeField]
+    [SerializeField]
     GameObject button1;
     [SerializeField]
     GameObject button2;
@@ -90,9 +90,15 @@ public class PlayerController : MonoBehaviour
     GameObject char3;
     [SerializeField]
     GameObject char4;
-    */
 
-    //public Text KeypadExit;
+    [SerializeField]
+    GameObject VaultDoorOpen;
+    [SerializeField]
+    GameObject VaultDoorClosed;
+
+    public Text KeypadExit;
+
+    public DigitalDisplay DD;
 
 
     // Start is called before the first frame update
@@ -116,10 +122,15 @@ public class PlayerController : MonoBehaviour
         LeverThreeDown.gameObject.SetActive (false);
         LazerDoorThree.gameObject.SetActive (true);
 
+        VaultDoorClosed.gameObject.SetActive (true);
+        VaultDoorOpen.gameObject.SetActive (false);
+
         CloseToLeverOne = false;
         CloseToLeverTwo = false;
         CloseToLeverThree = false;
-        /*
+
+        win = false;
+    
       AtKeypad = false;
 
       keypadScreen.enabled = false;
@@ -144,7 +155,6 @@ public class PlayerController : MonoBehaviour
       char4.gameObject.SetActive (false);
 
       KeypadExit.gameObject.SetActive (false);
-      */
     }
     
 
@@ -154,7 +164,15 @@ public class PlayerController : MonoBehaviour
         z = Input.GetAxis("Vertical");
         GameOver();
 
-      
+        if(DD.openDoor)
+        {
+            Debug.Log("Open the door!");
+
+            DD.openDoor = false;
+
+            VaultDoorClosed.gameObject.SetActive (false);
+            VaultDoorOpen.gameObject.SetActive (true);
+        }
         
         if (Input.GetKey(KeyCode.E))
         {
@@ -188,7 +206,7 @@ public class PlayerController : MonoBehaviour
                 audioSource.Play();
                 CloseToLeverThree = false;
             }
-            /*
+
             if (AtKeypad == true)
             {
                 keypadScreen.enabled = true;
@@ -214,9 +232,9 @@ public class PlayerController : MonoBehaviour
 
                 KeypadExit.gameObject.SetActive (true);
             }
-            */
+
         }
-        /*
+
         if (Input.GetKey(KeyCode.R))
         {
             keypadScreen.enabled = false;
@@ -242,7 +260,6 @@ public class PlayerController : MonoBehaviour
 
             KeypadExit.gameObject.SetActive (false);
         }
-        */
 
         if (win)
         {
@@ -299,11 +316,11 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        /*if (other.gameObject.CompareTag("Keypad"))
+        if (other.gameObject.CompareTag("Keypad"))
         {
             AtKeypad = true;
         }
-        */
+        
     }
     
     void GameOver()
