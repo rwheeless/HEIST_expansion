@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5098536245478214435}
   - component: {fileID: 438061437481560623}
   m_Layer: 0
-  m_Name: Wall_4_Midsection
+  m_Name: W_4_M_Retexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c53e4b94072692b43a81b48364ed8592, type: 2}
+  - {fileID: 2100000, guid: 0e76eeaafe8b547478e216c5c26cd6f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

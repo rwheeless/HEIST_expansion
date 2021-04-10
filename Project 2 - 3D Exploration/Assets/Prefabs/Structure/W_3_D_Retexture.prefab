@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7572057855635157292}
   - component: {fileID: 7139216892801505119}
   m_Layer: 0
-  m_Name: Wall_3_Doorway
+  m_Name: W_3_D_Retexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 142b4f0402b7f444aa13d9064380e36c, type: 2}
+  - {fileID: 2100000, guid: 5014198dfb0168442a207fa965a4fd8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
