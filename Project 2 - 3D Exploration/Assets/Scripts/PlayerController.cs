@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpStr = 4f;
 
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
     private CapsuleCollider collider;
     private Vector3 moveDirection;
     AudioSource audioSource;
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private bool CloseToLeverTwo;
     private bool CloseToLeverThree;
     private bool win;
+    private bool inVault;
 
     private bool AtKeypad;
 
@@ -99,6 +100,9 @@ public class PlayerController : MonoBehaviour
     public Text KeypadExit;
 
     public DigitalDisplay DD;
+
+    
+
 
 
     // Start is called before the first frame update
@@ -233,7 +237,14 @@ public class PlayerController : MonoBehaviour
                 KeypadExit.gameObject.SetActive (true);
             }
 
+            if (inVault)
+            {
+                winScreen.gameObject.SetActive(true);
+                rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+                Restart();
+            }
         }
+
 
         if (Input.GetKey(KeyCode.R))
         {
@@ -260,11 +271,6 @@ public class PlayerController : MonoBehaviour
 
             KeypadExit.gameObject.SetActive (false);
         }
-
-        if (win)
-        {
-            Restart();
-        }
     }
 
     // Update is called once per frame
@@ -272,10 +278,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         moveDirection = x * transform.right + z * transform.forward;
-        if (isGrounded() && Input.GetKeyDown("space"))
-        {
-            rigidBody.AddForce(Vector3.up * jumpStr, ForceMode.VelocityChange);
-        }
     }
 
     private bool isGrounded()
@@ -310,7 +312,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("WinCollider"))
         {
-            win = true;
+            inVault = true;
             winScreen.gameObject.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints.FreezeAll;
             
@@ -322,10 +324,18 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    void OnTriggerStay(Collider Other)
+    {
+        if (Other.gameObject.CompareTag("WinCollider"))
+        {
+            inVault = true;
+        }
+    }
     
     void GameOver()
     {
-        if(lives == 0)
+        if(lives <= 0)
         {
             Restart();
             loseScreen.gameObject.SetActive(true);
@@ -336,7 +346,7 @@ public class PlayerController : MonoBehaviour
 
     void Restart()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene("Main_Level");
         }
