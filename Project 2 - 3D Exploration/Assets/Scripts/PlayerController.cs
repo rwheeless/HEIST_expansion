@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
         }
 
-        if (playerCaught)
+        if (playerCaught && lives > 0)
         {
             caughtText.gameObject.SetActive (true);
         }
