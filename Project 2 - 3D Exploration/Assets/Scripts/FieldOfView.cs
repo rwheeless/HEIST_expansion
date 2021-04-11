@@ -24,7 +24,8 @@ public class FieldOfView : MonoBehaviour {
 
 	public GameObject player;
     private PlayerController playerController;
-	bool targetSpotted = false;
+	public bool targetSpotted = false;
+	//public bool playerCaught = false;
 
 
 	public GameObject firstLife;
@@ -235,15 +236,23 @@ public class FieldOfView : MonoBehaviour {
 	{
 		if(targetSpotted)
 		{
-			player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
-			//playerController.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+			//player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+			playerController.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
             playerController.lives--;
+			player.layer = LayerMask.NameToLayer("Default");
+			playerController.playerCaught = true;
 			targetSpotted = false;
+			
+			
+			
 			/*if (Input.GetKeyDown(KeyCode.C))
 			{
 				player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+				player.layer = LayerMask.NameToLayer("Target");
+				caught = false;
 			}
 			*/
+			
 		}
 	}
 }

@@ -102,7 +102,13 @@ public class PlayerController : MonoBehaviour
     public DigitalDisplay DD;
 
     
+    public GameObject enemy;
+    private FieldOfView fieldOfView;
+    public bool playerCaught = false;
+    public GameObject player;
 
+    [SerializeField]
+    GameObject caughtText;
 
 
     // Start is called before the first frame update
@@ -111,7 +117,9 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody>(); 
         collider = GetComponent<CapsuleCollider>();
+        fieldOfView = enemy.GetComponent<FieldOfView>();
 
+        caughtText.gameObject.SetActive(false);
         winScreen.gameObject.SetActive (false);    
         loseScreen.gameObject.SetActive (false);
         LeverOneUp.gameObject.SetActive (true);
@@ -167,6 +175,31 @@ public class PlayerController : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
         GameOver();
+        Win();
+
+        if (fieldOfView.targetSpotted)
+        {
+            Time.timeScale = 0;
+        }
+
+         if (playerCaught && Input.GetKeyDown(KeyCode.C))
+        {
+            transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+            playerCaught = false;
+            player.layer = LayerMask.NameToLayer("Target");
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+        }
+
+        if (playerCaught)
+        {
+            caughtText.gameObject.SetActive (true);
+        }
+        else
+        {
+            caughtText.gameObject.SetActive (false);
+        }
+            
 
         if(DD.openDoor)
         {
@@ -236,13 +269,14 @@ public class PlayerController : MonoBehaviour
 
                 KeypadExit.gameObject.SetActive (true);
             }
-
+            /*
             if (inVault)
             {
                 winScreen.gameObject.SetActive(true);
                 rigidBody.constraints = RigidbodyConstraints.FreezeAll;
                 Restart();
             }
+            */
         }
 
 
@@ -342,6 +376,16 @@ public class PlayerController : MonoBehaviour
             rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
+    }
+
+    void Win()
+    {
+        if(inVault)
+        {
+            winScreen.gameObject.SetActive(true);
+            rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+            Restart(); 
+        }
     }
 
     void Restart()

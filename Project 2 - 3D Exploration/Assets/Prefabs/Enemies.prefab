@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4199610577358314154}
   - component: {fileID: 2361408421470368095}
   - component: {fileID: 1135480812}
+  - component: {fileID: -5528316146640511400}
+  - component: {fileID: 4298665756422841505}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Enemy
@@ -149,6 +151,51 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5528316146640511400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472308581463014618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde64a2bb77d88e40aba7a464c47c463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleTargets: []
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  viewMeshFilter: {fileID: 0}
+  player: {fileID: 0}
+  targetSpotted: 0
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
+--- !u!114 &4298665756422841505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472308581463014618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d02719b4740e94799d90b9b97bbcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
