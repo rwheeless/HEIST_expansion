@@ -1980,7 +1980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &59407290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8500,7 +8500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &313023961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15781,6 +15781,12 @@ MonoBehaviour:
   edgeDstThreshold: 10
   viewMeshFilter: {fileID: 768934256}
   player: {fileID: 2012344979}
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
 --- !u!114 &631600502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30928,6 +30934,12 @@ MonoBehaviour:
   edgeDstThreshold: 10
   viewMeshFilter: {fileID: 1817737963}
   player: {fileID: 2012344979}
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
 --- !u!114 &1268439296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35177,6 +35189,12 @@ MonoBehaviour:
   edgeDstThreshold: 10
   viewMeshFilter: {fileID: 1445409153}
   player: {fileID: 2012344979}
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
 --- !u!114 &1423583150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41133,6 +41151,12 @@ MonoBehaviour:
   edgeDstThreshold: 10
   viewMeshFilter: {fileID: 422271984}
   player: {fileID: 2012344979}
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
 --- !u!114 &1711002568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46963,7 +46987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1895893568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46989,8 +47013,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: -7.3438}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 3.6, y: 16.8}
+  m_SizeDelta: {x: 58.927338, y: 52.649384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1897140600
 GameObject:
@@ -50735,6 +50759,12 @@ MonoBehaviour:
   edgeDstThreshold: 10
   viewMeshFilter: {fileID: 470794761}
   player: {fileID: 2012344979}
+  firstLife: {fileID: 0}
+  secondLife: {fileID: 0}
+  thirdLife: {fileID: 0}
+  firstLifeLost: {fileID: 0}
+  secondLifeLost: {fileID: 0}
+  uiHealthBar: {fileID: 0}
 --- !u!114 &2058560703
 MonoBehaviour:
   m_ObjectHideFlags: 0
