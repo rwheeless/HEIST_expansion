@@ -10,6 +10,7 @@ TagManager:
   - LeverTwo
   - Keypad
   - WinCollider
+  - InMuseum
   layers:
   - Default
   - TransparentFX

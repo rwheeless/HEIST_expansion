@@ -102,8 +102,17 @@ public class PlayerController : MonoBehaviour
     public DigitalDisplay DD;
 
     
+    public GameObject enemy;
+    private FieldOfView fieldOfView;
+    public bool playerCaught = false;
+    public GameObject player;
 
+    [SerializeField]
+    GameObject caughtText;
 
+    bool inMuseum = false;
+    bool inBrewery = true;
+    public GameObject caughtBreweryText;
 
     // Start is called before the first frame update
     void Start()
@@ -111,7 +120,9 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody>(); 
         collider = GetComponent<CapsuleCollider>();
+        fieldOfView = enemy.GetComponent<FieldOfView>();
 
+        caughtText.gameObject.SetActive(false);
         winScreen.gameObject.SetActive (false);    
         loseScreen.gameObject.SetActive (false);
         LeverOneUp.gameObject.SetActive (true);
@@ -167,6 +178,50 @@ public class PlayerController : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
         GameOver();
+        Win();
+
+        if (fieldOfView.targetSpotted)
+        {
+            Time.timeScale = 0;
+        }
+
+         if (playerCaught && Input.GetKeyDown(KeyCode.C) && inMuseum)
+        {
+            transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+            playerCaught = false;
+            player.layer = LayerMask.NameToLayer("Target");
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+        }
+        else if (playerCaught && Input.GetKeyDown(KeyCode.C) && inBrewery)
+        {
+            transform.position = new Vector3 (4.38f, -0.71f, -23.46f);
+            playerCaught = false;
+            player.layer = LayerMask.NameToLayer("Target");
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+        }
+
+       
+
+        if (playerCaught && lives > 0 && inMuseum)
+        {
+            caughtText.gameObject.SetActive (true);
+        }
+        else
+        {
+            caughtText.gameObject.SetActive (false);
+        }
+
+        if (playerCaught && lives > 0 && inBrewery)
+        {
+            caughtBreweryText.gameObject.SetActive (true);
+        }
+        else
+        {
+            caughtBreweryText.gameObject.SetActive (false);
+        }
+            
 
         if(DD.openDoor)
         {
@@ -236,15 +291,15 @@ public class PlayerController : MonoBehaviour
 
                 KeypadExit.gameObject.SetActive (true);
             }
-
+            /*
             if (inVault)
             {
                 winScreen.gameObject.SetActive(true);
                 rigidBody.constraints = RigidbodyConstraints.FreezeAll;
                 Restart();
             }
+            */
         }
-
 
         if (Input.GetKey(KeyCode.R))
         {
@@ -322,6 +377,12 @@ public class PlayerController : MonoBehaviour
         {
             AtKeypad = true;
         }
+
+        if (other.gameObject.CompareTag("InMuseum"))
+        {
+            inMuseum = true;
+            inBrewery = false;
+        }
         
     }
 
@@ -344,9 +405,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Win()
+    {
+        if(inVault)
+        {
+            winScreen.gameObject.SetActive(true);
+            rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+            Restart(); 
+        }
+    }
+
     void Restart()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Main_Level");
         }

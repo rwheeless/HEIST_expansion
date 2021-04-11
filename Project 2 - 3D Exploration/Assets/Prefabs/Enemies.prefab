@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4199610577358314154}
   - component: {fileID: 2361408421470368095}
   - component: {fileID: 1135480812}
-  - component: {fileID: 6108466075593035645}
   - component: {fileID: 8051334516406651004}
   - component: {fileID: 6733768888064572320}
+  - component: {fileID: 4767237626541747211}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Enemy
@@ -155,44 +155,6 @@ NavMeshAgent:
   m_BaseOffset: 0.8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6108466075593035645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472308581463014618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde64a2bb77d88e40aba7a464c47c463, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadius: 3
-  viewAngle: 48
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 512
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 256
-  visibleTargets: []
-  meshResolution: 1
-  edgeResolveIterations: 4
-  edgeDstThreshold: 10
-  viewMeshFilter: {fileID: 0}
-  player: {fileID: 1264875733126674166, guid: 1585179fcb6c883419ae10b68d40e1a4, type: 3}
-  firstLife: {fileID: 8358102695076284935, guid: 73378ea58a21a7d40a122eb5bc8ea195,
-    type: 3}
-  secondLife: {fileID: 4274312060336160070, guid: b3d6f7b6eff1e6140859b6e6c94dac22,
-    type: 3}
-  thirdLife: {fileID: 6237303325765868954, guid: 71c1dca576db69f49b26430b3f14dd95,
-    type: 3}
-  firstLifeLost: {fileID: 1578040830322365397, guid: 74503f66481175f4eaaefc069c5432ff,
-    type: 3}
-  secondLifeLost: {fileID: 8870029541418909803, guid: 692b77221d72fa94ebb94eba0911b158,
-    type: 3}
-  uiHealthBar: {fileID: 2279737850178030626, guid: d60e71022c20a294bab96901866da3ef,
-    type: 3}
 --- !u!82 &8051334516406651004
 AudioSource:
   m_ObjectHideFlags: 0
@@ -301,3 +263,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d02719b4740e94799d90b9b97bbcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4767237626541747211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472308581463014618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde64a2bb77d88e40aba7a464c47c463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  viewMeshFilter: {fileID: 0}
+  player: {fileID: 1264875733126674166, guid: 1585179fcb6c883419ae10b68d40e1a4, type: 3}
+  targetSpotted: 0
+  firstLife: {fileID: 8358102695076284935, guid: 73378ea58a21a7d40a122eb5bc8ea195,
+    type: 3}
+  secondLife: {fileID: 4274312060336160070, guid: b3d6f7b6eff1e6140859b6e6c94dac22,
+    type: 3}
+  thirdLife: {fileID: 6237303325765868954, guid: 71c1dca576db69f49b26430b3f14dd95,
+    type: 3}
+  firstLifeLost: {fileID: 1578040830322365397, guid: 74503f66481175f4eaaefc069c5432ff,
+    type: 3}
+  secondLifeLost: {fileID: 8870029541418909803, guid: 692b77221d72fa94ebb94eba0911b158,
+    type: 3}
+  uiHealthBar: {fileID: 0}
