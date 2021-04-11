@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class FieldOfView : MonoBehaviour {
 
@@ -24,6 +25,15 @@ public class FieldOfView : MonoBehaviour {
 	public GameObject player;
     private PlayerController playerController;
 	bool targetSpotted = false;
+
+
+	public GameObject firstLife;
+	public GameObject secondLife;
+	public GameObject thirdLife;
+	public GameObject firstLifeLost;
+	public GameObject secondLifeLost;
+	public GameObject uiHealthBar;
+	
 	void Start() 
 	{
         playerController = player.GetComponent<PlayerController>();
@@ -32,6 +42,41 @@ public class FieldOfView : MonoBehaviour {
 		viewMeshFilter.mesh = viewMesh;
 
 		StartCoroutine ("FindTargetsWithDelay", .2f);
+
+		firstLife.gameObject.SetActive (true);
+		firstLifeLost.gameObject.SetActive (false);
+		secondLife.gameObject.SetActive (true);
+		secondLifeLost.gameObject.SetActive (false);
+		thirdLife.gameObject.SetActive (true);
+		uiHealthBar.gameObject.SetActive (true);
+	}
+
+	void Update()
+	{
+		if (playerController.lives == 3)
+		{
+			firstLife.gameObject.SetActive (true);
+			firstLifeLost.gameObject.SetActive (false);
+			secondLife.gameObject.SetActive (true);
+			secondLifeLost.gameObject.SetActive (false);
+			thirdLife.gameObject.SetActive (true);
+		}
+		if (playerController.lives == 2)
+		{
+			firstLife.gameObject.SetActive (false);
+			firstLifeLost.gameObject.SetActive (true);
+		}
+
+		if (playerController.lives == 1)
+		{
+			secondLife.gameObject.SetActive (false);
+			secondLifeLost.gameObject.SetActive (true);
+		}
+
+		if (playerController.lives == 0)
+		{
+			uiHealthBar.gameObject.SetActive (false);
+		}
 	}
 
 
@@ -190,10 +235,15 @@ public class FieldOfView : MonoBehaviour {
 	{
 		if(targetSpotted)
 		{
-			player.transform.position = new Vector3(-3.52f, -0.88f, -4.1f); 
+			player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+			//playerController.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
             playerController.lives--;
 			targetSpotted = false;
-			
+			/*if (Input.GetKeyDown(KeyCode.C))
+			{
+				player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
+			}
+			*/
 		}
 	}
 }
