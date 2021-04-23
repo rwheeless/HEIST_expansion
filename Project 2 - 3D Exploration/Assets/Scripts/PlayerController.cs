@@ -110,9 +110,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject caughtText;
 
-    bool inMuseum = false;
-    bool inBrewery = true;
-    public GameObject caughtBreweryText;
+    bool inMuseum = true;
+    //bool inBrewery = true;
+    //public GameObject caughtBreweryText;
 
     // Start is called before the first frame update
     void Start()
@@ -193,7 +193,7 @@ public class PlayerController : MonoBehaviour
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
         }
-        else if (playerCaught && Input.GetKeyDown(KeyCode.C) && inBrewery)
+        /*else if (playerCaught && Input.GetKeyDown(KeyCode.C) && inBrewery)
         {
             transform.position = new Vector3 (4.38f, -0.71f, -23.46f);
             playerCaught = false;
@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
         }
+        */
 
        
 
@@ -213,7 +214,7 @@ public class PlayerController : MonoBehaviour
             caughtText.gameObject.SetActive (false);
         }
 
-        if (playerCaught && lives > 0 && inBrewery)
+        /*if (playerCaught && lives > 0 && inBrewery)
         {
             caughtBreweryText.gameObject.SetActive (true);
         }
@@ -221,6 +222,7 @@ public class PlayerController : MonoBehaviour
         {
             caughtBreweryText.gameObject.SetActive (false);
         }
+        */
             
 
         if(DD.openDoor)
@@ -378,11 +380,12 @@ public class PlayerController : MonoBehaviour
             AtKeypad = true;
         }
 
-        if (other.gameObject.CompareTag("InMuseum"))
+        /*if (other.gameObject.CompareTag("InMuseum"))
         {
             inMuseum = true;
             inBrewery = false;
         }
+        */
         
     }
 
