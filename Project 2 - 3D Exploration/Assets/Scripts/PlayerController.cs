@@ -114,6 +114,27 @@ public class PlayerController : MonoBehaviour
     bool inBrewery = true;
     public GameObject caughtBreweryText;
 
+    [SerializeField]
+    GameObject HTP1;
+    [SerializeField]
+    GameObject HTP2;
+    [SerializeField]
+    GameObject HTP3;
+    [SerializeField]
+    GameObject HTP4;
+    [SerializeField]
+    GameObject HTP5;
+    [SerializeField]
+    GameObject HTP6;
+    [SerializeField]
+    GameObject HTP7;
+    [SerializeField]
+    GameObject HTP8;
+    [SerializeField]
+    GameObject HTP9;
+    [SerializeField]
+    GameObject HTP10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -170,6 +191,17 @@ public class PlayerController : MonoBehaviour
       char4.gameObject.SetActive (false);
 
       KeypadExit.gameObject.SetActive (false);
+
+      HTP1.gameObject.SetActive (false);
+      HTP2.gameObject.SetActive (false);
+      HTP3.gameObject.SetActive (false);
+      HTP4.gameObject.SetActive (false);
+      HTP5.gameObject.SetActive (false);
+      HTP6.gameObject.SetActive (false);
+      HTP7.gameObject.SetActive (false);
+      HTP8.gameObject.SetActive (false);
+      HTP9.gameObject.SetActive (false);
+      HTP10.gameObject.SetActive (false);
     }
     
 
