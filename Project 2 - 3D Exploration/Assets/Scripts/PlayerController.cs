@@ -114,6 +114,9 @@ public class PlayerController : MonoBehaviour
     //bool inBrewery = true;
     //public GameObject caughtBreweryText;
 
+    float originalHeight;
+    public float reducedHeight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +124,8 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>(); 
         collider = GetComponent<CapsuleCollider>();
         fieldOfView = enemy.GetComponent<FieldOfView>();
+
+        originalHeight = collider.height;
 
         caughtText.gameObject.SetActive(false);
         winScreen.gameObject.SetActive (false);    
@@ -146,30 +151,30 @@ public class PlayerController : MonoBehaviour
 
         win = false;
     
-      AtKeypad = false;
+        AtKeypad = false;
 
-      keypadScreen.enabled = false;
+        keypadScreen.enabled = false;
 
-      button1.gameObject.SetActive (false);
-      button2.gameObject.SetActive (false);
-      button3.gameObject.SetActive (false);
-      button4.gameObject.SetActive (false);
-      button5.gameObject.SetActive (false);
-      button6.gameObject.SetActive (false);
-      button7.gameObject.SetActive (false);
-      button8.gameObject.SetActive (false);
-      button9.gameObject.SetActive (false);
-      buttonStar.gameObject.SetActive (false);
-      button0.gameObject.SetActive (false);
-      buttonPound.gameObject.SetActive (false);
+        button1.gameObject.SetActive (false);
+        button2.gameObject.SetActive (false);
+        button3.gameObject.SetActive (false);
+        button4.gameObject.SetActive (false);
+        button5.gameObject.SetActive (false);
+        button6.gameObject.SetActive (false);
+        button7.gameObject.SetActive (false);
+        button8.gameObject.SetActive (false);
+        button9.gameObject.SetActive (false);
+        buttonStar.gameObject.SetActive (false);
+        button0.gameObject.SetActive (false);
+        buttonPound.gameObject.SetActive (false);
 
-      displayPanel.gameObject.SetActive (false);
-      char1.gameObject.SetActive (false);
-      char2.gameObject.SetActive (false);
-      char3.gameObject.SetActive (false);
-      char4.gameObject.SetActive (false);
+        displayPanel.gameObject.SetActive (false);
+        char1.gameObject.SetActive (false);
+        char2.gameObject.SetActive (false);
+        char3.gameObject.SetActive (false);
+        char4.gameObject.SetActive (false);
 
-      KeypadExit.gameObject.SetActive (false);
+        KeypadExit.gameObject.SetActive (false);
     }
     
 
@@ -335,18 +340,38 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         moveDirection = x * transform.right + z * transform.forward;
-    }
 
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Crouch();
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Stand();
+        }
+    }
+    /*
     private bool isGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, collider.bounds.extents.y + .3f);
     }
+    */
 
     void Move()
     {
         Vector3 yVel = new Vector3 (0f, rigidBody.velocity.y, 0f);
         rigidBody.velocity = moveDirection * moveSpeed * Time.deltaTime;
         rigidBody.velocity += yVel;
+    }
+    //method to crouch 
+    void Crouch()
+    {
+        collider.height = reducedHeight;
+    }
+    //method to stand up
+    void Stand()
+    {
+        collider.height = originalHeight;
     }
         
 
