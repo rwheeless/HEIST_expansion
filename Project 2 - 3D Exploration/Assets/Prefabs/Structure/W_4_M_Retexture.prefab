@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7000094629882118121}
   - component: {fileID: 5098536245478214435}
   - component: {fileID: 438061437481560623}
+  - component: {fileID: 5083244922205323467}
   m_Layer: 0
   m_Name: W_4_M_Retexture
   m_TagString: Untagged
@@ -93,3 +94,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000012, y: 0.019564867, z: 2}
   m_Center: {x: 0, y: -1.4743356, z: 0}
+--- !u!65 &5083244922205323467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755786209513007862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000012, y: 0.31219482, z: 2}
+  m_Center: {x: 0, y: 1.5459948, z: 0}
