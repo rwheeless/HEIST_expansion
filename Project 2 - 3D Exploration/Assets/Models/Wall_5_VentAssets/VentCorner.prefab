@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 3236294287793821553}
   - component: {fileID: 1965393627494258900}
   - component: {fileID: 4369208926953827358}
+  - component: {fileID: 9167979193515425747}
+  - component: {fileID: 6267455591791733191}
+  - component: {fileID: 1670994669037216241}
+  - component: {fileID: 3698557302933249224}
   m_Layer: 0
   m_Name: VentCorner
   m_TagString: Untagged
@@ -79,3 +83,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9167979193515425747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855968458961833419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3811595, y: 0.34889567, z: 2.3811595}
+  m_Center: {x: 0, y: 0.8235445, z: 0}
+--- !u!65 &6267455591791733191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855968458961833419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21583104, y: 1.2622544, z: 2.3811595}
+  m_Center: {x: 1.3088781, y: 0, z: 0}
+--- !u!65 &1670994669037216241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855968458961833419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.415421, y: 1.2622544, z: 0.24739146}
+  m_Center: {x: 0.017130852, y: 0, z: 1.3208033}
+--- !u!65 &3698557302933249224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855968458961833419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0869153, y: 1.2622544, z: 1.095068}
+  m_Center: {x: -0.64712226, y: 0, z: -0.6430459}
