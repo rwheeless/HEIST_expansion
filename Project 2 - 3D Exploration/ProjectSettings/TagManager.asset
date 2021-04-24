@@ -11,6 +11,8 @@ TagManager:
   - Keypad
   - WinCollider
   - InMuseum
+  - voice2
+  - voice4
   layers:
   - Default
   - TransparentFX
