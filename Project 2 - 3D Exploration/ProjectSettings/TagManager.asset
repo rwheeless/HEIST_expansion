@@ -17,6 +17,7 @@ TagManager:
   - code1
   - code3
   - code4
+  - Safe
   layers:
   - Default
   - TransparentFX

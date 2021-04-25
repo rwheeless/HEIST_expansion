@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController2 : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpStr = 4f;
@@ -17,19 +17,12 @@ public class PlayerController : MonoBehaviour
     private float x;
     private float z;
     public float lives = 3f;
-    [SerializeField]
+    /*[SerializeField]
     GameObject loseScreen;
     [SerializeField]
     GameObject winScreen;
     
-    [SerializeField]
-    GameObject SafeOpen;
-    [SerializeField]
-    GameObject SafeClosed;
-
-    private bool nearSafe;
-    
-    [SerializeField]
+     [SerializeField]
     public GameObject code1;
     [SerializeField]
     public GameObject code2;
@@ -42,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public bool nearcode2;
     public bool nearcode3;
     public bool nearcode4;
+
+    private bool FinishWin;
     
    
     [SerializeField]
@@ -119,7 +114,14 @@ public class PlayerController : MonoBehaviour
 
     public Text KeypadExit;
 
-    public DigitalDisplay DD;
+    public DigitalDisplay DD;*/
+
+    [SerializeField]
+    GameObject SafeOpen;
+    [SerializeField]
+    GameObject SafeClosed;
+
+    private bool nearSafe;
 
     
     public GameObject enemy;
@@ -127,8 +129,8 @@ public class PlayerController : MonoBehaviour
     public bool playerCaught = false;
     public GameObject player;
 
-    [SerializeField]
-    GameObject caughtText;
+    //[SerializeField]
+    //GameObject caughtText;
 
     bool inMuseum = true;
     //bool inBrewery = true;
@@ -140,6 +142,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        SafeClosed.gameObject.SetActive (true);
+        SafeOpen.gameObject.SetActive (false);
+
+        nearSafe = false;
+
+
         audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody>(); 
         collider = GetComponent<CapsuleCollider>();
@@ -147,7 +156,7 @@ public class PlayerController : MonoBehaviour
 
         originalHeight = collider.height;
 
-        caughtText.gameObject.SetActive(false);
+        /*caughtText.gameObject.SetActive(false);
         winScreen.gameObject.SetActive (false);    
         loseScreen.gameObject.SetActive (false);
         LeverOneUp.gameObject.SetActive (true);
@@ -170,6 +179,8 @@ public class PlayerController : MonoBehaviour
         CloseToLeverThree = false;
 
         win = false;
+
+        FinishWin = false;
     
         AtKeypad = false;
 
@@ -199,7 +210,7 @@ public class PlayerController : MonoBehaviour
         code3.gameObject.SetActive (false);
         code4.gameObject.SetActive (false);
 
-        KeypadExit.gameObject.SetActive (false);
+        KeypadExit.gameObject.SetActive (false);*/
     }
     
 
@@ -208,7 +219,7 @@ public class PlayerController : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
         GameOver();
-        Win();
+        //Win();
 
         if (fieldOfView.targetSpotted)
         {
@@ -238,11 +249,11 @@ public class PlayerController : MonoBehaviour
 
         if (playerCaught && lives > 0 && inMuseum)
         {
-            caughtText.gameObject.SetActive (true);
+            //caughtText.gameObject.SetActive (true);
         }
         else
         {
-            caughtText.gameObject.SetActive (false);
+            //caughtText.gameObject.SetActive (false);
         }
 
         /*if (playerCaught && lives > 0 && inBrewery)
@@ -256,7 +267,7 @@ public class PlayerController : MonoBehaviour
         */
             
 
-        if(DD.openDoor)
+        /*if(DD.openDoor)
         {
             Debug.Log("Open the door!");
 
@@ -264,17 +275,11 @@ public class PlayerController : MonoBehaviour
 
             VaultDoorClosed.gameObject.SetActive (false);
             VaultDoorOpen.gameObject.SetActive (true);
-        }
+        }*/
         
         if (Input.GetKey(KeyCode.E))
         {
-            if (nearSafe == true)
-            {
-                SafeClosed.gameObject.SetActive (false);
-                SafeOpen.gameObject.SetActive (true);
-            }
-            
-            if (nearcode1 == true)
+            /*if (nearcode1 == true)
             {
                 code1.gameObject.SetActive (true);
             }
@@ -292,6 +297,13 @@ public class PlayerController : MonoBehaviour
             if (nearcode4 == true)
             {
                 code4.gameObject.SetActive (true);
+            }
+
+            if (FinishWin == true)
+            {
+                inVault = true;
+                winScreen.gameObject.SetActive(true);
+                rigidBody.constraints = RigidbodyConstraints.FreezeAll;
             }
 
             if (CloseToLeverOne == true)
@@ -349,7 +361,14 @@ public class PlayerController : MonoBehaviour
                 char4.gameObject.SetActive (true);
 
                 KeypadExit.gameObject.SetActive (true);
+            }*/
+
+            if (nearSafe == true)
+            {
+                SafeClosed.gameObject.SetActive (false);
+                SafeOpen.gameObject.SetActive (true);
             }
+
             /*
             if (inVault)
             {
@@ -360,7 +379,7 @@ public class PlayerController : MonoBehaviour
             */
         }
 
-        if (Input.GetKey(KeyCode.R))
+        /*if (Input.GetKey(KeyCode.R))
         {
             keypadScreen.enabled = false;
 
@@ -384,7 +403,7 @@ public class PlayerController : MonoBehaviour
             char4.gameObject.SetActive (false);
 
             KeypadExit.gameObject.SetActive (false);
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -434,7 +453,7 @@ public class PlayerController : MonoBehaviour
             nearSafe = true;
         }
         
-        if (other.gameObject.CompareTag("LeverOne"))
+        /*if (other.gameObject.CompareTag("LeverOne"))
         {
             CloseToLeverOne = true;
         }
@@ -472,16 +491,13 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("WinCollider"))
         {
-            inVault = true;
-            winScreen.gameObject.SetActive(true);
-            rigidBody.constraints = RigidbodyConstraints.FreezeAll;
-            
+            FinishWin = true;
         }
 
         if (other.gameObject.CompareTag("Keypad"))
         {
             AtKeypad = true;
-        }
+        }*/
 
         /*if (other.gameObject.CompareTag("InMuseum"))
         {
@@ -492,34 +508,34 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void OnTriggerStay(Collider Other)
+    /*void OnTriggerStay(Collider Other)
     {
         if (Other.gameObject.CompareTag("WinCollider"))
         {
             inVault = true;
         }
-    }
+    }*/
     
     void GameOver()
     {
         if(lives <= 0)
         {
             Restart();
-            loseScreen.gameObject.SetActive(true);
+            //loseScreen.gameObject.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
     }
 
-    void Win()
+    /*void Win()
     {
         if(inVault)
         {
-            winScreen.gameObject.SetActive(true);
+            //winScreen.gameObject.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints.FreezeAll;
             Restart(); 
         }
-    }
+    }*/
 
     void Restart()
     {
@@ -528,7 +544,4 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Main_Level");
         }
     }
-    
-    
-    
 }
