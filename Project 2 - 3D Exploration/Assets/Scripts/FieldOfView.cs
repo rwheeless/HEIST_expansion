@@ -23,6 +23,8 @@ public class FieldOfView : MonoBehaviour {
     Mesh viewMesh;
 
     public GameObject player;
+    public GameObject playerBrew;
+    private PlayerController2 playerController2;
     private PlayerController playerController;
     public bool targetSpotted = false;
     //public bool playerCaught = false;
@@ -37,6 +39,7 @@ public class FieldOfView : MonoBehaviour {
     void Start() 
     {
         playerController = player.GetComponent<PlayerController>();
+        playerController2 = playerBrew.GetComponent<PlayerController2>();
         viewMesh = new Mesh ();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
@@ -74,6 +77,31 @@ public class FieldOfView : MonoBehaviour {
         }
 
         if (playerController.lives == 0)
+        {
+            uiHealthBar.gameObject.SetActive (false);
+        }
+
+        if (playerController2.lives == 3)
+        {
+            firstLife.gameObject.SetActive (true);
+            firstLifeLost.gameObject.SetActive (false);
+            secondLife.gameObject.SetActive (true);
+            secondLifeLost.gameObject.SetActive (false);
+            thirdLife.gameObject.SetActive (true);
+        }
+        if (playerController2.lives == 2)
+        {
+            firstLife.gameObject.SetActive (false);
+            firstLifeLost.gameObject.SetActive (true);
+        }
+
+        if (playerController2.lives == 1)
+        {
+            secondLife.gameObject.SetActive (false);
+            secondLifeLost.gameObject.SetActive (true);
+        }
+
+        if (playerController2.lives == 0)
         {
             uiHealthBar.gameObject.SetActive (false);
         }
@@ -229,7 +257,7 @@ public class FieldOfView : MonoBehaviour {
 
     public void Caught()
     {
-        if(targetSpotted)
+        if(targetSpotted && player.gameObject.CompareTag("Player"))
         {
             //player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
             playerController.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
@@ -237,17 +265,15 @@ public class FieldOfView : MonoBehaviour {
             player.layer = LayerMask.NameToLayer("Default");
             playerController.playerCaught = true;
             targetSpotted = false;
-            
-            
-            
-            /*if (Input.GetKeyDown(KeyCode.C))
-            {
-                player.transform.position = new Vector3 (-3.52f, -0.88f, -4.1f);
-                player.layer = LayerMask.NameToLayer("Target");
-                caught = false;
-            }
-            */
-            
+        }
+        else if (targetSpotted && playerBrew.gameObject.CompareTag("PlayerBrew"))
+        {
+            playerController2.rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+            playerController2.lives--;
+            playerBrew.layer = LayerMask.NameToLayer("Default");
+            playerController2.playerCaught = true;
+            targetSpotted = false;
+            Debug.Log("Player Was Caught!");
         }
     }
 }

@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2012344986}
   - component: {fileID: 575365311512163268}
   - component: {fileID: 2230347428454520721}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &718895193
 MonoBehaviour:
@@ -230,9 +230,19 @@ MonoBehaviour:
   moveSpeed: 250
   jumpStr: 5
   rigidBody: {fileID: 227852611135192269}
-  lives: 3
+  lives: -19
   loseScreen: {fileID: 0}
   winScreen: {fileID: 0}
+  SafeOpen: {fileID: 0}
+  SafeClosed: {fileID: 0}
+  code1: {fileID: 0}
+  code2: {fileID: 0}
+  code3: {fileID: 0}
+  code4: {fileID: 0}
+  nearcode1: 0
+  nearcode2: 0
+  nearcode3: 0
+  nearcode4: 0
   LeverOneUp: {fileID: 0}
   LeverOneDown: {fileID: 0}
   LazerDoorOne: {fileID: 0}
@@ -265,6 +275,11 @@ MonoBehaviour:
   VaultDoorClosed: {fileID: 0}
   KeypadExit: {fileID: 0}
   DD: {fileID: 0}
+  enemy: {fileID: 0}
+  playerCaught: 1
+  player: {fileID: 0}
+  caughtText: {fileID: 0}
+  reducedHeight: 0
 --- !u!82 &2012344987
 AudioSource:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ TagManager:
   - code3
   - code4
   - Safe
+  - PlayerBrew
   layers:
   - Default
   - TransparentFX

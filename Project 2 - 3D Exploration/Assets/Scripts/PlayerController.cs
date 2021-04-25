@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject winScreen;
     
-    [SerializeField]
+    /*[SerializeField]
     GameObject SafeOpen;
     [SerializeField]
-    GameObject SafeClosed;
+    GameObject SafeClosed;*/
 
-    private bool nearSafe;
+    //private bool nearSafe;
     
     [SerializeField]
     public GameObject code1;
@@ -268,11 +268,11 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
-            if (nearSafe == true)
+            /*if (nearSafe == true)
             {
                 SafeClosed.gameObject.SetActive (false);
                 SafeOpen.gameObject.SetActive (true);
-            }
+            }*/
             
             if (nearcode1 == true)
             {
@@ -429,10 +429,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Safe"))
+        /*if (other.gameObject.CompareTag("Safe"))
         {
             nearSafe = true;
         }
+        */
         
         if (other.gameObject.CompareTag("LeverOne"))
         {
