@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6267455591791733191}
   - component: {fileID: 1670994669037216241}
   - component: {fileID: 3698557302933249224}
+  - component: {fileID: 1214334369656119651}
   m_Layer: 0
   m_Name: VentCorner
   m_TagString: Untagged
@@ -133,5 +134,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0869153, y: 1.2622544, z: 1.095068}
-  m_Center: {x: -0.64712226, y: 0, z: -0.6430459}
+  m_Size: {x: 1.0869153, y: 1.2677199, z: 1.095068}
+  m_Center: {x: -0.64712226, y: 0.0027327538, z: -0.6430459}
+--- !u!65 &1214334369656119651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855968458961833419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.401785, y: 0.7077899, z: 2.5037746}
+  m_Center: {x: 0.010312557, y: -0.9998555, z: 0.06130743}

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6675940979336231289}
   - component: {fileID: 1123232839018532010}
   - component: {fileID: 3548675283307762565}
+  - component: {fileID: 8921598409122077750}
+  - component: {fileID: 1162105389460586426}
   m_Layer: 0
   m_Name: VentFinalSetup
   m_TagString: Untagged
@@ -169,6 +171,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.47170722, y: 2.7744927, z: 3.163324}
   m_Center: {x: 3.9378686, y: 0.096871614, z: -2.2863328}
+--- !u!65 &8921598409122077750
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166894592753109040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4964285, y: 0.7759614, z: 4.5477257}
+  m_Center: {x: 3.274241, y: -1.7928374, z: -1.6738353}
+--- !u!65 &1162105389460586426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166894592753109040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0911684, y: 0.6889231, z: 1.9567971}
+  m_Center: {x: 0.0018663406, y: -1.8363565, z: 0.0043052435}
 --- !u!1 &7851462250074435736
 GameObject:
   m_ObjectHideFlags: 0

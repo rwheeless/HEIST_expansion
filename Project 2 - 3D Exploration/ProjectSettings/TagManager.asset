@@ -13,6 +13,10 @@ TagManager:
   - InMuseum
   - voice2
   - voice4
+  - code2
+  - code1
+  - code3
+  - code4
   layers:
   - Default
   - TransparentFX

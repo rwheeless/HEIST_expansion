@@ -11,7 +11,7 @@ public class MouseController : MonoBehaviour
     float xRotation = 0f;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
     }
  
     void LateUpdate()

@@ -22,6 +22,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject winScreen;
     
+     [SerializeField]
+    public GameObject code1;
+    [SerializeField]
+    public GameObject code2;
+    [SerializeField]
+    public GameObject code3;
+    [SerializeField]
+    public GameObject code4;
+
+    public bool nearcode1;
+    public bool nearcode2;
+    public bool nearcode3;
+    public bool nearcode4;
     
    
     [SerializeField]
@@ -174,6 +187,11 @@ public class PlayerController : MonoBehaviour
         char3.gameObject.SetActive (false);
         char4.gameObject.SetActive (false);
 
+        code1.gameObject.SetActive (false);
+        code2.gameObject.SetActive (false);
+        code3.gameObject.SetActive (false);
+        code4.gameObject.SetActive (false);
+
         KeypadExit.gameObject.SetActive (false);
     }
     
@@ -196,6 +214,7 @@ public class PlayerController : MonoBehaviour
             playerCaught = false;
             player.layer = LayerMask.NameToLayer("Target");
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionY;
             rigidBody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
         }
         /*else if (playerCaught && Input.GetKeyDown(KeyCode.C) && inBrewery)
@@ -242,6 +261,26 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
+            if (nearcode1 == true)
+            {
+                code1.gameObject.SetActive (true);
+            }
+
+            if (nearcode2 == true)
+            {
+                code2.gameObject.SetActive (true);
+            }
+
+            if (nearcode3 == true)
+            {
+                code3.gameObject.SetActive (true);
+            }
+
+            if (nearcode4 == true)
+            {
+                code4.gameObject.SetActive (true);
+            }
+
             if (CloseToLeverOne == true)
             {
                 LeverOneUp.gameObject.SetActive (false);
@@ -390,6 +429,27 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("LeverThree"))
         {
             CloseToLeverThree = true;
+        }
+
+        
+        if (other.gameObject.CompareTag("code1"))
+        {
+            nearcode1 = true;
+        }
+
+        if (other.gameObject.CompareTag("code2"))
+        {
+            nearcode2 = true;
+        }
+
+        if (other.gameObject.CompareTag("code3"))
+        {
+            nearcode3 = true;
+        }
+
+        if (other.gameObject.CompareTag("code4"))
+        {
+            nearcode4 = true;
         }
 
         if (other.gameObject.CompareTag("WinCollider"))
